@@ -1,0 +1,14 @@
+um programa que determine gastos de uma empresa para a produção de um item por exemplo limonadas, derivados de reciclagem
+
+primeiro commit
+git init - criar repositório
+git config --global init.defaulBranch main - configura o repositório de maneira global
+git branch -M(branch principal do projeto) main - move para a branch que se chama main
+echo "# git-test" >> README.md - cria um arquivo chamado README.md com "git test" escrito nele
+git add README.md - adicionar na lista de salvamento
+git add . - salva tudo
+git push - enviar para o github
+git remote show - mostra o repositório configurado
+git remote add origin "link do repositório no github" - adiciona a origem de salvamento do repositório
+
+git push origin main - depois de configurar chave SSH
