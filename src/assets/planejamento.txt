@@ -1,0 +1,46 @@
+serão 3 predefinições
+
+limonadas
+marcadores de página
+vuvuzelas de plástico reciclável
+
+primeiros dados fornecidos ao user:
+
+produção/(hrs/seg/min)/funcionário
+quantia de materiais necessários para produção de um
+porcentagem de imprevistos durante a produção
+, ocasionando em uma falha durante a produção de alguma
+priorizar qualidade ou quantidade (escolha do user)
+tempo de armazenamento (se perecivel) (informações de durabilidade)
+descrição de cada um
+
+vuvuzelas produtos necessários:
+
+plastico reciclável: 200 gramas
+molde: 1 unidade
+termômetro: 1 unidade
+forja de aquecimento: 1 unidade (capacidade total: 100Kg plástico)
+funcionário: 1 unidade
+caixa de papelao: 1 unidade (capacidade total: 6 vuvuzelas)
+adesivo marca: 1 unidade
+tinta amarela: 200ml
+tinta verde: 100ml
+
+marcadores de página produtos necessários:
+
+papel reciclável: 50 gramas
+tinta preta: 20ml
+tinta branca: 5ml
+cortador industrial automático: 1 unidade (capacitado a 20 ao mesmo tempo)
+funcionário: 1 unidade
+caixa de papelão: 1 und (cabendo 1000 marcadores de página)
+adesivo com logo marca da empresa: 1 unidade
+
+limonadas produtos necessários:
+
+limoes: 5 unidades
+água: 1000ml
+açucar: 200 gramas
+embalagem pronta de 1L: 1 unidade
+funcionário 1 unidade
+caixa de papelão: 1 unidade (cabendo 18 caixas de suco)
