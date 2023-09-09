@@ -1,7 +1,7 @@
 <template>
     <div id="main">
         <div id="company_name">
-          <input v-model="company_named" type="companyNameInput" placeholder="digite o nome da empresa aqui">
+          <input v-model="company_named" type="companyNameInput" placeholder="digite o nome da empresa aqui" v-focus>
           <button @click="confirm_name()">confirmar</button>
         </div>
         <div id="variables">

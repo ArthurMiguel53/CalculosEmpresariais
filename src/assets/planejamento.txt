@@ -6,13 +6,13 @@ vuvuzelas de plástico reciclável
 
 primeiros dados fornecidos ao user:
 
+descrição de cada um
 produção/(hrs/seg/min)/funcionário
 quantia de materiais necessários para produção de um
 porcentagem de imprevistos durante a produção
 , ocasionando em uma falha durante a produção de alguma
 priorizar qualidade ou quantidade (escolha do user)
 tempo de armazenamento (se perecivel) (informações de durabilidade)
-descrição de cada um
 
 vuvuzelas produtos necessários:
 

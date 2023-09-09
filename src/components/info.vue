@@ -1,13 +1,13 @@
 <template>
   <div id="principal">
     <div id="infoUser">
-      <label>
-        <input type="radio" name="op1" id="op1" @click="desmarcaroutros(0), addToNecessaryMaterialsVuvuzela()"> {{ productNameList[0] }}
-        <input type="radio" name="op2" id="op2" @click="desmarcaroutros(1)"> {{ productNameList[1] }}
-        <input type="radio" name="op3" id="op3" @click="desmarcaroutros(2)"> {{ productNameList[2] }}
+      <label id="marcadores">
+        <input type="radio" name="op1" id="op1" @click="desmarcaroutros(0), addToNecessaryMaterialsVuvuzela()"> {{ ProductNameList[0] }}
+        <input type="radio" name="op2" id="op2" @click="desmarcaroutros(1)"> {{ ProductNameList[1] }}
+        <input type="radio" name="op3" id="op3" @click="desmarcaroutros(2)"> {{ ProductNameList[2] }}
       </label>
-      <h1 class="infoUserItem">nome do produto: <br><span id="productName">{{ productNameList[productChosed] }}</span></h1>
-      <h3 class="infoUserItem">produção: <span id="producaoTempo">{{ produceInit }} {{ produceInitTime }}</span></h3>
+      <h1 class="infoUserItem">nome do produto: <br><span id="ProductName">{{ ProductNameList[ProductChosed] }}</span></h1>
+      <h3 class="infoUserItem">tempo de produção: <span id="producaoTempo">{{ ProduceInitialQuantity }} {{ ProduceInitialQuantityTime }}</span></h3>
       <h3 class="infoUserItem">materiais necessários para 1 produção:</h3>
       <ul id="necessaryMaterials">
         <li>bah</li>
@@ -27,12 +27,12 @@ export default defineComponent({
   name: 'info',
   data() {
     return{
-      produceInit: "",
-      produceInitTime: "",
-      amountProduceOne: 0,
-      productNameList: ["vuvuzela", "limonada", "marcador de página", "nenhum selecionado"],
-      productChosed: 3,
-      materials: [
+      ProduceInitialQuantity: "",
+      ProduceInitialQuantityTime: "",
+      AmountProduceOne: 0,
+      ProductNameList: ["vuvuzela", "limonada", "marcador de página", "nenhum produto selecionado"],
+      ProductChosed: 3,
+      Materials: [
         "plastico reciclável",
         "Molde",
         "Termômetro",
@@ -53,67 +53,79 @@ export default defineComponent({
         "Funcionário",
         "Caixa de papelão"
       ],
-      measurementUnity: [
+      MeasurementUnity: [
         "unidade",
         "ml",
         "L",
         "gramas",
-      ]
-
-    }
-  },
-  methods: {
-    desmarcaroutros(selecionado: number){
-      const options = [
-        document.getElementById("op1") as HTMLInputElement,
-        document.getElementById("op2") as HTMLInputElement,
-        document.getElementById("op3") as HTMLInputElement
-      ];
-
-      const ProductionTime =[
+      ],
+      ProductionTime: [
         "a cada 20 segundos",
         "a cada 25 segundos",
         "a cada 20 segundos"
-      ]
+      ],
 
-      for (let i = 0; i < options.length; i++) {
-        if (i === selecionado) {
-          options[i].checked = true;
-          this.produceInit = "1";
-          this.produceInitTime = ProductionTime[i]
+      /*quantia de opções */
+      Options: [
+        document.getElementById("op1") as HTMLInputElement,
+        document.getElementById("op2") as HTMLInputElement,
+        document.getElementById("op3") as HTMLInputElement
+      ]
+      
+    }
+  },
+  
+  mounted () {
+    this.Options = [
+      document.getElementById("op1") as HTMLInputElement,
+      document.getElementById("op2") as HTMLInputElement,
+      document.getElementById("op3") as HTMLInputElement
+    ]
+  },
+  
+  methods: {
+    desmarcaroutros(RadioPointActived: number){
+      for (let CheckingRadioPointActived = 0; CheckingRadioPointActived < this.Options.length; 
+            CheckingRadioPointActived++) {
+        if (CheckingRadioPointActived === RadioPointActived) {
+          this.Options[CheckingRadioPointActived].checked = true;
+          this.ProduceInitialQuantity = "1";
+          this.ProduceInitialQuantityTime = this.ProductionTime[CheckingRadioPointActived]
         } else {
-          options[i].checked = false;
+          this.Options[CheckingRadioPointActived].checked = false;
         };
       }
-      this.productChosed = selecionado;
+      this.ProductChosed = RadioPointActived;
     },
 
     addToNecessaryMaterialsVuvuzela(){
-      const father = document.getElementById("necessaryMaterials") as HTMLUListElement
-
-      for (let i = 0; i < father.children.length; i++) {
-        let elementToBeRemoved = father.children[i]
-        father.removeChild(elementToBeRemoved)
+      const ListNecessaryMaterials = document.getElementById("necessaryMaterials") as HTMLUListElement
+      for (let RemovingElements = 0; RemovingElements < ListNecessaryMaterials.children.length; RemovingElements++) {
+        let ElementToBeRemoved = ListNecessaryMaterials.children[RemovingElements]
+        ListNecessaryMaterials.removeChild(ElementToBeRemoved)
       }
 
-      //products necessary to vuvuzela
-        const productsVuvuzela = [
-        this.materials[0] + " -> 200 " + this.measurementUnity[3],
-        this.materials[1] + " -> 1 " + this.measurementUnity[0],
-        this.materials[3] + " -> 1 " + this.measurementUnity[0],
-        this.materials[17] + " -> 1 " + this.measurementUnity[0],
-        this.materials[18] + " -> 1 " + this.measurementUnity[0],
-        this.materials[5] + " -> 1 " + this.measurementUnity[0],
-        this.materials[6] + " -> 200 " + this.measurementUnity[1],
-        this.materials[7] + " -> 100 " + this.measurementUnity[1],
+      //Products necessary to vuvuzela
+        const ProductsVuvuzela = [
+        this.Materials[0] + " -> 200 " + this.MeasurementUnity[3],
+        this.Materials[1] + " -> 1 " + this.MeasurementUnity[0],
+        this.Materials[3] + " -> 1 " + this.MeasurementUnity[0],
+        this.Materials[17] + " -> 1 " + this.MeasurementUnity[0],
+        this.Materials[18] + " -> 1 " + this.MeasurementUnity[0],
+        this.Materials[5] + " -> 1 " + this.MeasurementUnity[0],
+        this.Materials[6] + " -> 200 " + this.MeasurementUnity[1],
+        this.Materials[7] + " -> 100 " + this.MeasurementUnity[1],
       ]
-      console.log(productsVuvuzela)
+      console.log(ProductsVuvuzela)
 
-      for (let i = 0; i < productsVuvuzela.length; i ++) {
+      for (let i = 0; i < ProductsVuvuzela.length; i ++) {
         let childToBeAdded = document.createElement("li")
-        childToBeAdded.textContent = productsVuvuzela[i]
-        father.appendChild(childToBeAdded)
+        childToBeAdded.textContent = ProductsVuvuzela[i]
+        ListNecessaryMaterials.appendChild(childToBeAdded)
       }
+    },
+
+    AddToNecessaryMaterialsMarcador() {
     }
   }
 });
